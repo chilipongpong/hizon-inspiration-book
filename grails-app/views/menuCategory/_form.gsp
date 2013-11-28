@@ -7,7 +7,7 @@
 		<g:message code="menuCategory.name.label" default="Name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="name" required="" value="${menuCategoryInstance?.name}"/>
+	<g:textField name="name" maxlength="100" required="" value="${menuCategoryInstance?.name}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: menuCategoryInstance, field: 'description', 'error')} ">
@@ -15,7 +15,7 @@
 		<g:message code="menuCategory.description.label" default="Description" />
 		
 	</label>
-	<g:textField name="description" value="${menuCategoryInstance?.description}"/>
+	<g:textField name="description" maxlength="250" value="${menuCategoryInstance?.description}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: menuCategoryInstance, field: 'status', 'error')} required">
