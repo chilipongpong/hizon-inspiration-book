@@ -60,11 +60,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${menuItemInstance?.menuCategory}">
+				<g:if test="${menuItemInstance?.menuItem}">
 				<li class="fieldcontain">
-					<span id="menuCategory-label" class="property-label"><g:message code="menuItem.menuCategory.label" default="Menu Category" /></span>
+					<span id="menuItem-label" class="property-label"><g:message code="menuItem.menuItem.label" default="Menu Category" /></span>
 					
-						<span class="property-value" aria-labelledby="menuCategory-label"><g:link controller="menuCategory" action="show" id="${menuItemInstance?.menuCategory?.id}">${menuItemInstance?.menuCategory?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="menuItem-label"><g:link controller="menuItem" action="show" id="${menuItemInstance?.menuItem?.id}">${menuItemInstance?.menuItem?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

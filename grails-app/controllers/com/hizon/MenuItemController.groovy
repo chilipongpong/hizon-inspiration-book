@@ -4,12 +4,16 @@ package com.hizon
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+
+import org.compass.core.engine.SearchEngineQueryParseException
 import org.springframework.web.multipart.commons.CommonsMultipartFile
 
 @Transactional(readOnly = true)
 class MenuItemController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	static String WILDCARD = "*"
+	def searchableService
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -116,4 +120,31 @@ class MenuItemController {
             '*'{ render status: NOT_FOUND }
         }
     }
+	
+	def search(){
+		if (!params.q?.trim()) {
+			return [:]
+		}
+		try {
+			String searchTerm = WILDCARD+params.q+WILDCARD
+			return [menuItemInstanceList: MenuItem.search(searchTerm, params)]
+		} catch (SearchEngineQueryParseException ex) {
+			return [parseException: true]
+		}
+	}
+	
+	def indexAll = {
+		Thread.start {
+			searchableService.index()
+		}
+		render("bulk index started in a background thread")
+	}
+
+	/**
+	 * Perform a bulk index of every searchable object in the database
+	 */
+	def unindexAll = {
+		searchableService.unindex()
+		render("unindexAll done")
+	}
 }

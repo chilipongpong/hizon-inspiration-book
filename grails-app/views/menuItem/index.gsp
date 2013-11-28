@@ -20,6 +20,10 @@
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
+			<g:form action="search" method="get">
+			<g:textField name="q" value="${params.q}" />
+			<g:submitButton name="search" />
+		</g:form>
 			<table>
 			<thead>
 					<tr>
@@ -32,7 +36,7 @@
 					
 						<g:sortableColumn property="image" title="${message(code: 'menuItem.image.label', default: 'Image')}" />
 					
-						<th><g:message code="menuItem.menuCategory.label" default="Menu Category" /></th>
+						<th><g:message code="menuItem.menuItem.label" default="Menu Category" /></th>
 					
 					</tr>
 				</thead>
@@ -48,7 +52,7 @@
 					
 						<td><g:img dir="/uploaded-files" file="${menuItemInstance.imageFileName}" width="150"/></td>
 					
-						<td>${fieldValue(bean: menuItemInstance, field: "menuCategory")}</td>
+						<td>${fieldValue(bean: menuItemInstance, field: "menuItem")}</td>
 					
 					</tr>
 				</g:each>
