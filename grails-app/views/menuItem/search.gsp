@@ -1,5 +1,5 @@
 
-<%@ page import="com.hizon.menuItem"%>
+<%@ page import="com.hizon.MenuItem"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,6 +49,9 @@
 
 						<g:sortableColumn property="status"
 							title="${message(code: 'menuItem.status.label', default: 'Status')}" />
+						
+						
+						<th><g:message code="menuItem.menuCategory.label" default="Menu Category" /></th>
 
 					</tr>
 				</thead>
@@ -68,6 +71,10 @@
 
 							<td>
 								${fieldValue(bean: menuItemInstance, field: "status")}
+							</td>
+							
+							<td>
+								${fieldValue(bean: menuItemInstance, field: "menuCategory")}
 							</td>
 
 						</tr>

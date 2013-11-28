@@ -36,7 +36,7 @@
 					
 						<g:sortableColumn property="image" title="${message(code: 'menuItem.image.label', default: 'Image')}" />
 					
-						<th><g:message code="menuItem.menuItem.label" default="Menu Category" /></th>
+						<th><g:message code="menuItem.menuCategory.label" default="Menu Category" /></th>
 					
 					</tr>
 				</thead>
@@ -52,7 +52,7 @@
 					
 						<td><g:img dir="/uploaded-files" file="${menuItemInstance.imageFileName}" width="150"/></td>
 					
-						<td>${fieldValue(bean: menuItemInstance, field: "menuItem")}</td>
+						<td>${fieldValue(bean: menuItemInstance, field: "menuCategory")}</td>
 					
 					</tr>
 				</g:each>

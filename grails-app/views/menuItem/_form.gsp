@@ -44,12 +44,12 @@
 </div>
 
 <div
-	class="fieldcontain ${hasErrors(bean: menuItemInstance, field: 'menuItem', 'error')} required">
-	<label for="menuItem"> <g:message
-			code="menuItem.menuItem.label" default="Menu Category" /> <span
+	class="fieldcontain ${hasErrors(bean: menuItemInstance, field: 'menuCategory', 'error')} required">
+	<label for="menuCategory"> <g:message
+			code="menuItem.menuCategory.label" default="Menu Category" /> <span
 		class="required-indicator">*</span>
 	</label>
-	<g:select id="menuItem" name="menuItem.id"
+	<g:select id="menuCategory" name="menuCategory.id"
 		from="${com.hizon.MenuCategory.list()}" optionKey="id" required=""
 		value="${menuItemInstance?.menuCategory?.id}" class="many-to-one" />
 </div>
